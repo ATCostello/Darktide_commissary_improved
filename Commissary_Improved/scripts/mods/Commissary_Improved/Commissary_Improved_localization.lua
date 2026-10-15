@@ -47,7 +47,7 @@ mod.gradientText = function(text, startColor, endColor, colorSpaces)
 		end
 	end
 
-	result = "{#color(" .. colours.title .. ")}" .. result .. "{#reset()}"
+	result = "{#color(" .. colours.title .. ")} " .. result .. "{#reset()}"
 	return result
 end
 
@@ -72,7 +72,7 @@ mod.localisation = {
 		en = "{#color("
 			.. colours.text
 			.. ")}"
-			.. "Adds multi-operative preview and ownership info to the commissary."
+			.. "Various improvements to the 'Commissary' shop view, to enhance your darktide experience."
 			.. "{#reset()}\n\n"
 			.. "{#color("
 			.. colours.subtitle
