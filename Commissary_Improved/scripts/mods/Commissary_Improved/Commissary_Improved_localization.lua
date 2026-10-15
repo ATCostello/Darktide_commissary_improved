@@ -1,5 +1,5 @@
 local mod = get_mod("Commissary_Improved")
-mod.version = "1.0"
+mod.version = "1.0.1"
 
 local colours = {
 	title = "200,140,20",
