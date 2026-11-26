@@ -1,7 +1,8 @@
 local mod = get_mod("Commissary_Improved")
 
 local CosmeticsVendorView = require("scripts/ui/views/cosmetics_vendor_view/cosmetics_vendor_view")
-local CosmeticsVendorBackgroundView = require("scripts/ui/views/cosmetics_vendor_background_view/cosmetics_vendor_background_view")
+local CosmeticsVendorBackgroundView =
+	require("scripts/ui/views/cosmetics_vendor_background_view/cosmetics_vendor_background_view")
 local ProfileUtils = require("scripts/utilities/profile_utils")
 local Items = require("scripts/utilities/items")
 local UISettings = require("scripts/settings/ui/ui_settings")
@@ -250,9 +251,17 @@ CosmeticsVendorView._setup_side_panel = function(self, item)
 
 	local showing_text
 
-	if self._previewed_with_gear ~= false and is_character_item(item) and mod.selected_profile and mod.current_profiles then
+	if
+		self._previewed_with_gear ~= false
+		and is_character_item(item)
+		and mod.selected_profile
+		and mod.current_profiles
+	then
 		local archetype_name = mod.selected_profile.archetype and mod.selected_profile.archetype.name
-		local symbol = archetype_name and UISettings.archetype_font_icon and UISettings.archetype_font_icon[archetype_name] or ""
+		local symbol = archetype_name
+				and UISettings.archetype_font_icon
+				and UISettings.archetype_font_icon[archetype_name]
+			or ""
 		local profile_name = mod.selected_profile.name or ""
 
 		showing_text = string.format("%s %s", symbol, profile_name)
@@ -313,7 +322,12 @@ mod:hook_safe(CLASS.CosmeticsVendorView, "_preview_item", function(self)
 		end
 	end
 
-	if is_character_item(item) and self._previewed_with_gear and self._gear_profile and self._store_presentation_profile ~= self._gear_profile then
+	if
+		is_character_item(item)
+		and self._previewed_with_gear
+		and self._gear_profile
+		and self._store_presentation_profile ~= self._gear_profile
+	then
 		self._store_presentation_profile = self._gear_profile
 		self._keep_current_rotation = true
 		self._spawn_player = true
